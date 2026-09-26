@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+.next/
+out/
+.turbo/
+coverage/
+
+# Environment and secrets
+.env
+.env.local
+.env.*.local
+
+# Database and local storage
+data/
+storage/projects/
+*.db
+*.db-journal
+
+# Logs and OS
+*.log
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Python (future worker adapters)
+.venv/
+__pycache__/
+*.pyc
+
+# FFmpeg temp
+*.ffmpeg.tmp

@@ -1,0 +1,41 @@
+{
+  "name": "@asv/worker",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing.d.ts",
+      "import": "./dist/testing.js"
+    }
+  },
+  "scripts": {
+    "predev": "pnpm --filter @asv/shared build && pnpm --filter @asv/providers build && pnpm --filter @asv/db build && pnpm --filter @asv/video-engine build",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src --ignore-pattern \"**/*.test.ts\"",
+    "pretest": "pnpm --filter @asv/shared build && pnpm --filter @asv/storage build && pnpm --filter @asv/video-engine build && pnpm --filter @asv/db build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@asv/db": "workspace:*",
+    "@asv/providers": "workspace:*",
+    "@asv/shared": "workspace:*",
+    "@asv/storage": "workspace:*",
+    "@asv/video-engine": "workspace:*",
+    "dotenv": "^17.2.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@asv/db": "workspace:*",
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.6",
+    "vitest": "^3.2.4"
+  }
+}

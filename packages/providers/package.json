@@ -1,0 +1,27 @@
+{
+  "name": "@asv/providers",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "pretest": "pnpm --filter @asv/storage build && pnpm --filter @asv/video-engine build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@asv/shared": "workspace:*",
+    "@asv/storage": "workspace:*",
+    "@asv/video-engine": "workspace:*"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4"
+  }
+}
