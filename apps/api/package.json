@@ -1,0 +1,35 @@
+{
+  "name": "@asv/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "pnpm --filter @asv/shared build && pnpm --filter @asv/providers build && pnpm --filter @asv/db build && pnpm --filter @asv/ai build",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "pretest": "pnpm --filter @asv/shared build && pnpm --filter @asv/storage build && pnpm --filter @asv/video-engine build && pnpm --filter @asv/providers build && pnpm --filter @asv/ai build && pnpm --filter @asv/db build && pnpm --filter @asv/worker build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@asv/ai": "workspace:*",
+    "@asv/db": "workspace:*",
+    "@asv/providers": "workspace:*",
+    "@asv/shared": "workspace:*",
+    "@asv/storage": "workspace:*",
+    "@asv/video-engine": "workspace:*",
+    "@hono/node-server": "^1.19.6",
+    "dotenv": "^17.2.3",
+    "hono": "^4.10.4",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@asv/video-engine": "workspace:*",
+    "@asv/worker": "workspace:*",
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.6",
+    "vitest": "^3.2.4"
+  }
+}

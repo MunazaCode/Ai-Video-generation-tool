@@ -1,0 +1,30 @@
+{
+  "name": "@asv/web",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint app components lib next.config.ts",
+    "pretest": "pnpm --filter @asv/shared build",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@asv/shared": "workspace:*",
+    "dotenv": "^17.2.3",
+    "next": "^15.5.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

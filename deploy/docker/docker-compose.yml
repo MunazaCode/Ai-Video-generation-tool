@@ -1,0 +1,22 @@
+services:
+  asv:
+    build:
+      context: ../..
+      dockerfile: deploy/docker/Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:4000}
+    ports:
+      - "3000:3000"
+      - "4000:4000"
+    environment:
+      APP_URL: ${APP_URL:-http://localhost:3000}
+      MOCK_AI: ${MOCK_AI:-true}
+      DATABASE_URL: file:/app/data/app.db
+      STORAGE_PATH: /app/storage
+    volumes:
+      - asv-data:/app/data
+      - asv-storage:/app/storage
+
+volumes:
+  asv-data:
+  asv-storage:

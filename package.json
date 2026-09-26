@@ -1,0 +1,31 @@
+{
+  "name": "ai-story-video-generator",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "description": "AI Story-to-Long-Form Video Generation monorepo",
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm -r run build",
+    "typecheck": "pnpm -r run typecheck",
+    "lint": "pnpm -r run lint",
+    "test": "pnpm -r run test",
+    "verify": "pnpm typecheck && pnpm lint && pnpm test && pnpm build",
+    "dev:web": "pnpm --filter @asv/web dev",
+    "dev:api": "pnpm --filter @asv/api dev",
+    "dev:worker": "pnpm --filter @asv/worker dev",
+    "dev:stack": "pnpm --filter @asv/shared build && pnpm --filter @asv/providers build && pnpm --filter @asv/db build && pnpm --filter @asv/ai build && pnpm --filter @asv/video-engine build",
+    "check:ffmpeg": "powershell -ExecutionPolicy Bypass -File ./scripts/check-ffmpeg.ps1",
+    "db:push": "pnpm --filter @asv/db db:push",
+    "db:setup": "powershell -ExecutionPolicy Bypass -File ./scripts/setup-db.ps1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.4"
+  }
+}
